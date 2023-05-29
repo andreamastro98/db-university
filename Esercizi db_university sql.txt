@@ -1,0 +1,94 @@
+ESERCIZIO 1
+
+SELECT * FROM `teachers`;
+
+////////////////
+
+ESERCIZIO 2
+
+SELECT `head_of_department` 
+FROM `departments`;
+
+////////////////
+
+ESERCIZIO 3
+
+SELECT *
+FROM `students`
+WHERE name LIKE 'e%';
+
+////////////////
+
+ESERCIZIO 4
+
+SELECT * 
+FROM `students` 
+WHERE YEAR(enrolment_date) = '2021'
+
+////////////////
+
+ESERCIZIO 5
+
+SELECT * 
+FROM `courses` 
+WHERE website is NULL;
+
+////////////////
+
+ESERCIZIO 6
+
+SELECT *
+FROM `teachers` 
+WHERE phone IS NOT NULL;
+
+////////////////
+
+ESERCIZIO 7
+
+SELECT * 
+FROM `exams` 
+WHERE date > '2020-06-01' 
+AND date < '2020-07-31'
+
+////////////////
+
+ESERCIZIO 8
+
+SELECT COUNT(id) 
+FROM `students`;
+
+////////////////
+
+GROUP BY
+
+ESERCIZIO 1
+
+SELECT COUNT(id) 
+FROM `courses` 
+GROUP BY `cfu`
+
+////////////////
+
+ESERCIZIO 2
+
+SELECT COUNT(id) 
+FROM `students` 
+GROUP BY `date_of_birth`;
+
+////////////////
+
+ESERCIZIO 3
+
+SELECT MIN(vote) AS voto_piú_basso
+FROM `exam_student` 
+GROUP BY `exam_id`;
+
+////////////////
+
+ESERCIZIO 4
+
+SELECT COUNT(id), 
+date FROM `exams` 
+WHERE date > '2020-07-01' 
+AND date < '2020-07-31' 
+GROUP BY date;

@@ -55,16 +55,28 @@ ON teachers.id = course_teacher.teacher_id;
 
 ////////////////////////
 
-ESERCIZIO 6 SBAGLIATO
+ESERCIZIO 6
 
-SELECT *
+SELECT DISTINCT teachers.name, teachers.surname
 FROM teachers
 JOIN course_teacher
-ON course_teacher.course_id = teachers.id
+ON course_teacher.teacher_id = teachers.id
 JOIN courses
 ON courses.id = course_teacher.course_id
 JOIN degrees
 ON degrees.id = courses.degree_id
 JOIN departments
 ON departments.id = degrees.department_id
-WHERE departments.id = 54;
+WHERE departments.name = 'Dipartimento di Matematica';
+
+//////////////////////////
+
+ESERCIZIO 7
+
+SELECT *
+FROM students
+JOIN exam_student
+ON student.id = exam_student.student_id
+JOIN exams
+ON exam.id = exam_student.exam_id
+GROUP BY students.id, students.name, exams.id HAVING MAX(exam_student.vote) >= 18
